@@ -159,7 +159,7 @@ class Game(tk.Frame):
                                        font=font)
 
     def update_lives_text(self):
-        text = 'Lives: %s' % self.lives
+        text = '♡: %s' % self.lives
         if self.hud is None:
             self.hud = self.draw_text(50, 20, text, 15)
         else:
