@@ -20,11 +20,17 @@ class Ball(GameObject):
     def __init__(self, canvas, x, y):
         self.radius = 10
         self.direction = [1, -1]
-        self.speed = 10
-        item = canvas.create_oval(x-self.radius, y-self.radius,
-                                  x+self.radius, y+self.radius,
-                                  fill='white')
-        super(Ball, self).__init__(canvas, item)
+        self.speed = 7
+
+        item = canvas.create_oval(
+            x-self.radius, y-self.radius,
+            x+self.radius, y+self.radius,
+            fill="#FFD93D",
+            outline="#FFFFFF",
+            width=2
+        )
+
+        super().__init__(canvas, item)
 
     def update(self):
         coords = self.get_position()
@@ -82,27 +88,40 @@ class Paddle(GameObject):
 
 
 class Brick(GameObject):
-    COLORS = {1: '#e74c3c', 2: '#3498db', 3: '#222222'}
+    COLORS = {
+        1: "#FF4D6D",
+        2: "#FF9F1C",
+        3: "#A855F7"
+    }
 
     def __init__(self, canvas, x, y, hits):
         self.width = 75
         self.height = 20
         self.hits = hits
+
         color = Brick.COLORS[hits]
-        item = canvas.create_rectangle(x - self.width / 2,
-                                       y - self.height / 2,
-                                       x + self.width / 2,
-                                       y + self.height / 2,
-                                       fill=color, tags='brick')
-        super(Brick, self).__init__(canvas, item)
+
+        item = canvas.create_rectangle(
+            x-self.width/2, y-self.height/2,
+            x+self.width/2, y+self.height/2,
+            fill=color,
+            outline="#FFFFFF",
+            width=1,
+            tags="brick"
+        )
+
+        super().__init__(canvas, item)
 
     def hit(self):
         self.hits -= 1
-        if self.hits == 0:
+
+        if self.hits <= 0:
             self.delete()
         else:
-            self.canvas.itemconfig(self.item,
-                                   fill=Brick.COLORS[self.hits])
+            self.canvas.itemconfig(
+                self.item,
+                fill=Brick.COLORS[self.hits]
+            )
 
 
 class Game(tk.Frame):
