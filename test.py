@@ -130,7 +130,7 @@ class Game(tk.Frame):
         self.lives = 3
         self.width = 610
         self.height = 400
-        self.canvas = tk.Canvas(self, bg="#1c1c55",
+        self.canvas = tk.Canvas(self, bg="#0f0f42",
                                 width=self.width,
                                 height=self.height,)
         self.canvas.pack()
@@ -172,10 +172,13 @@ class Game(tk.Frame):
         brick = Brick(self.canvas, x, y, hits)
         self.items[brick.item] = brick
 
-    def draw_text(self, x, y, text, size='40'):
-        font = ('Forte', size)
-        return self.canvas.create_text(x, y, text=text,
-                                       font=font)
+    def draw_text(self, x, y, text, size=25, color="#FDFA25"):
+        return self.canvas.create_text(
+            x, y,
+            text=text,
+            font=("Poppins", size, "bold italic"),
+            fill=color
+        )
 
     def update_lives_text(self):
         text = '♡: %s' % self.lives
