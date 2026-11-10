@@ -4,6 +4,5 @@ merubah lives menjadi bentuk hati
 ![alt text](screenshot/image.png)
 merubah warna paddel menjadi warna merah
 
-![alt text](screenshoot/image.png)
-merubah warna bola menjadi warna kuning
+![alt text](screenshot/image2.png)
 

@@ -72,7 +72,7 @@ class Paddle(GameObject):
                                        y - self.height / 2,
                                        x + self.width / 2,
                                        y + self.height / 2,
-                                       fill='red')
+                                       fill='yellow')
         super(Paddle, self).__init__(canvas, item)
 
     def set_ball(self, ball):
@@ -130,7 +130,7 @@ class Game(tk.Frame):
         self.lives = 3
         self.width = 610
         self.height = 400
-        self.canvas = tk.Canvas(self, bg='#aaaaff',
+        self.canvas = tk.Canvas(self, bg="#1c1c55",
                                 width=self.width,
                                 height=self.height,)
         self.canvas.pack()
